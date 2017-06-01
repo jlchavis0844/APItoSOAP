@@ -1,0 +1,14 @@
+        SOAPMessage message = factory.createMessage();
+        SOAPPart soapPart = message.getSOAPPart();
+        SOAPEnvelope envelope = soapPart.getEnvelope();
+        //add declaration here
+        envelope.addNamespaceDeclaration("env", "http://som.org");
+        SOAPHeader header = envelope.getHeader();
+        SOAPBody body = envelope.getBody();
+
+
+        SOAPElement envio = body.addChildElement("envio");
+        envio.setPrefix("env");
+        //explicit declare it here for this element
+        envio.addNamespaceDeclaration("env", "http://som.org");
+        SOAPElement cabecera = envio.addChildElement("cabecera","env");

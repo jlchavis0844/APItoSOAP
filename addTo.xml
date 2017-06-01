@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 rel. 3 (http://www.altova.com) by PSR (Calpers Central Receiving) -->
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.xmlsoap.org/soap/envelope/ SoapEnvelope.xsd">
+	<soap:Header>
+		<cuns:HeaderInfo xmlns:cuns="http://calpers.ca.gov/PSR/CommonUtilitiesV1">
+			<cuns:InterfaceTypeId>50031</cuns:InterfaceTypeId>
+			<cuns:BusinessPartnerId>7111270643</cuns:BusinessPartnerId>
+			<cuns:SchemaVersion>1.0</cuns:SchemaVersion>
+			<cuns:DateTime>2009-06-10T10:53:56</cuns:DateTime>
+		</cuns:HeaderInfo>
+	</soap:Header>
+	<soap:Body>
+		<n1:RetirementHealthEnrollment xsi:schemaLocation="http://calpers.ca.gov/PSR/RetirementHealthTransactionsV1 RetirementHealthTransactionsV1" xmlns:cuns="http://calpers.ca.gov/PSR/CommonUtilitiesV1" xmlns:n1="http://calpers.ca.gov/PSR/RetirementHealthTransactionsV1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rht="http://calpers.stinks.gov/sux/DoesNotExist">
+			<Transaction>
+				<TransactionType>NEN</TransactionType>
+				<UniqueTransactionId>01000ABCD3245FGRG5651245651245651245</UniqueTransactionId>
+				<Demographics>
+					<n1:PersonInfo>
+						<PersonId>
+							<cuns:SSN>333224444</cuns:SSN>
+						</PersonId>
+						<PersonIdType>SSN</PersonIdType>
+						<FirstName>Brandon</FirstName>
+						<LastName>Pascal</LastName>
+						<BirthDate>1988-02-05</BirthDate>
+						<Gender>M</Gender>
+					</n1:PersonInfo>
+					<UseAddressForHealth>true</UseAddressForHealth>
+					<n1:AddressInfo>
+						<cuns:AddressType>PHY</cuns:AddressType>
+						<cuns:AddressLine>8945 River Way</cuns:AddressLine>
+						<cuns:City>Williams</cuns:City>
+						<cuns:State>CA</cuns:State>
+						<cuns:ZipCode5>90543</cuns:ZipCode5>
+						<cuns:Country>US</cuns:Country>
+					</n1:AddressInfo>
+				</Demographics>
+				<Appointment>
+					<EmployerInfo>
+						<EmployerCalPERSId>7111270643</EmployerCalPERSId>
+					</EmployerInfo>
+				</Appointment>
+				<HealthEnrollment>
+					<HealthEventReason>104</HealthEventReason>
+					<EventDate>2009-01-01</EventDate>
+					<ReceivedDate>2009-04-01</ReceivedDate>
+					<MedicalGroup>045</MedicalGroup>
+					<SubscriberInfo>
+						<ApplyChangeToMedicalPlan>true</ApplyChangeToMedicalPlan>
+						<ApplyChangeToDentalPlan>false</ApplyChangeToDentalPlan>
+						<ApplyChangeToVisionPlan>false</ApplyChangeToVisionPlan>
+						<HealthEligibilityZipCodeType>Personal</HealthEligibilityZipCodeType>
+						<HealthEligibilityZipCode>94588</HealthEligibilityZipCode>
+						<HealthEligibilityCounty>001</HealthEligibilityCounty>
+						<MedicalPlanSelection>325</MedicalPlanSelection>
+					</SubscriberInfo>
+				</HealthEnrollment>
+			</Transaction>
+		</n1:RetirementHealthEnrollment>
+	</soap:Body>
+</soap:Envelope>

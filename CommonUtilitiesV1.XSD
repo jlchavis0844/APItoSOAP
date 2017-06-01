@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 rel. 3 (http://www.altova.com) by PSR (Calpers Central Receiving) -->
+<!-- ########################################################################################## -->
+<!-- Copyright 2008 Accenture LLP.  This document is licensed to CalPERS only for CalPERS       -->
+<!-- program purposes.                                                                          -->
+<!-- ########################################################################################## -->
+<!-- Name: CommonUtilitiesV1.xsd                                                                -->
+<!-- PSR IAs                                                                                    -->
+<!-- ########################################################################################## -->
+<!-- Date                   Version                     Revision Description                    -->
+<!-- __________________________________________________________________________________________ -->
+<!-- 01/29/2008             1.0                         Initial Release of the schema           -->
+<!-- 12/12/2008             1.1                         Updates per SCR_3160 (made the state element optional.-->
+<!-- 12/17/2008             11                          Revised schema header                   -->
+<!-- 07/16/2012             12                          Added new data type PayrollReportNameType    -->
+<!-- __________________________________________________________________________________________ -->
+<!-- ###########################################################################################-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cuns="http://calpers.ca.gov/PSR/CommonUtilitiesV1" targetNamespace="http://calpers.ca.gov/PSR/CommonUtilitiesV1" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xs:element name="CommonUtilities">
+		<xs:annotation>
+			<xs:documentation>This schema contains all the common types across all interfaces.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<!-- Pre-defined datatype for Identification Type format, it is a choice of SSN, TIN, or CalPERSd -->
+	<!-- AED start changes 06/16/08 -->
+	<xs:element name="HeaderInfo" type="cuns:HeaderInfoType"/>
+	<!-- AED end changes 06/16/08 -->
+	<xs:complexType name="HeaderInfoType">
+		<xs:sequence>
+			<xs:element name="InterfaceTypeId" type="xs:int"/>
+			<xs:element name="BusinessPartnerId" type="cuns:CalPERSIdType"/>
+			<xs:element name="SchemaVersion" type="xs:decimal"/>
+			<xs:element name="DateTime" type="cuns:LocalDateTimeType"/>
+			<xs:element name="ControlTotal" type="xs:int" minOccurs="0"/>
+			<xs:element name="Sequence" type="xs:int" minOccurs="0"/>
+			<xs:element name="ContactName" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="50"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ContactEmail" type="cuns:EmailType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="IdentifierType">
+		<xs:choice>
+			<xs:element name="SSN" type="cuns:SSNType"/>
+			<xs:element name="CalPERSId" type="cuns:CalPERSIdType"/>
+		</xs:choice>
+	</xs:complexType>
+	<!-- Pre-defined datatype for Error format -->
+	<xs:complexType name="ErrorType">
+		<xs:sequence>
+			<xs:element name="ErrorCode">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ErrorField" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="50"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ErrorSeverity" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="12"/>
+						<xs:enumeration value="Error"/>
+						<xs:enumeration value="Exception"/>
+						<xs:enumeration value="Confirmation"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ErrorMessage">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="1000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- Pre-defined datatype for PostalAddress format -->
+	<xs:complexType name="AddressInfoType">
+		<xs:sequence>
+			<xs:element name="AddressType" type="cuns:CodeType" minOccurs="0"/>
+			<xs:element name="AddressLine" type="xs:string" maxOccurs="3"/>
+			<xs:element name="City">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="50"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="State" type="cuns:CodeType" minOccurs="0"/>
+			<xs:element name="ZipCode5" type="cuns:ZipCodeType" minOccurs="0"/>
+			<xs:element name="ZipCode4" type="cuns:ZipCode4Type" minOccurs="0"/>
+			<xs:element name="Country" type="cuns:CodeType"/>
+			<xs:element name="Province" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="50"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="PostalCode" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- Pre-defined datatype for Phone format, it can be either US Phone format or International Phone format -->
+	<xs:complexType name="PhoneInfoType">
+		<xs:sequence>
+			<xs:element name="PhoneType" type="cuns:CodeType" minOccurs="0"/>
+			<xs:choice>
+				<xs:element name="USPhone" type="cuns:USPhoneFormatType"/>
+				<xs:element name="InternationalPhone" type="cuns:InternationalPhoneFormatType"/>
+			</xs:choice>
+			<xs:element name="Extension" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="5"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- Pre-defined datatype for Date format (yyyy-mm-dd) -->
+	<xs:simpleType name="LocalDateType">
+		<xs:restriction base="xs:date">
+			<xs:pattern value="\d\d\d\d-\d\d-\d\d"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Pre-defined datatype for DateTime format (yyyy-mm-ddThh:mm:ss) -->
+	<xs:simpleType name="LocalDateTimeType">
+		<xs:restriction base="xs:dateTime">
+			<xs:pattern value="\d\d\d\d-\d\d-\d\dT\d\d:\d\d:\d\d"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Pre-defined datatype for Email format -->
+	<xs:simpleType name="EmailType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="\c+@\c+\.\c+"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Pre-defined datatype for SSN format, 9 digits(123456789) -->
+	<xs:simpleType name="SSNType">
+		<xs:restriction base="xs:string">
+			<xs:length value="9"/>
+			<xs:pattern value="[0-9]{9,9}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Pre-defined datatype for CalPERS Identification Number  format, 10 digits(123456789) -->
+	<xs:simpleType name="CalPERSIdType">
+		<xs:restriction base="xs:string">
+			<xs:length value="10"/>
+			<xs:pattern value="[0-9]{10,10}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Pre-defined datatype for US Phone format, 10 digits (2223334444) -->
+	<xs:simpleType name="USPhoneFormatType">
+		<xs:restriction base="xs:string">
+			<xs:length value="10"/>
+			<xs:pattern value="[0-9]{10,10}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Pre-defined datatype for International Phone format, minimum 3 digits, maximum 30 digits -->
+	<xs:simpleType name="InternationalPhoneFormatType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="30"/>
+			<xs:minLength value="3"/>
+			<xs:pattern value="[0-9]{3,30}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Pre-defined datatype for Code values for all data fields that have Code values in the database. -->
+	<xs:simpleType name="CodeType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ZipCodeType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="5"/>
+			<xs:pattern value="[0-9]{5,5}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ZipCode4Type">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="4"/>
+			<xs:pattern value="[0-9]{4,4}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="MoneyType">
+		<xs:restriction base="xs:decimal">
+			<xs:totalDigits value="17"/>
+			<xs:fractionDigits value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="UniqueTransactionIdentifierType">
+		<xs:restriction base="xs:string">
+			<xs:length value="36"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="IdType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1,10}"/>
+		</xs:restriction>	
+	</xs:simpleType>
+	<xs:simpleType name="PayrollReportNameType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="36"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

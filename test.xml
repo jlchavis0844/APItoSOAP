@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?><soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.xmlsoap.org/soap/envelope/ SoapEnvelope.xsd" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Header>
+        <cuns:HeaderInfo xmlns:cuns="http://calpers.ca.gov/PSR/CommonUtilitiesV1">
+            <cuns:InterfaceTypeId>50031</cuns:InterfaceTypeId>
+            <cuns:BusinessPartnerId>7111270643</cuns:BusinessPartnerId>
+            <cuns:SchemaVersion>1.0</cuns:SchemaVersion>
+            <cuns:DateTime>2017-05-31T08:46:27.378</cuns:DateTime>
+        </cuns:HeaderInfo>
+    </soap:Header>
+    <soap:Body>
+        <n1:RetirementHealthEnrollment xmlns:cuns="http://calpers.ca.gov/PSR/CommonUtilitiesV1" xmlns:n1="http://calpers.ca.gov/PSR/RetirementHealthTransactionsV1" xsi:schemaLocation="http://schemas.xmlsoap.org/soap/envelope/SoapEnvelope.xsd">
+            <Transaction>
+                <TransactionType>OEN</TransactionType>
+                <UniqueTransactionId>363701739644936257414862401488632945</UniqueTransactionId>
+                <Demographics>
+                    <n1:PersonInfo>
+                        <cuns:SSN>999001234</cuns:SSN>
+                        <PersonIdType>SSN</PersonIdType>
+                        <LastName>User</LastName>
+                        <FirstName>Test</FirstName>
+                        <BirthDate> </BirthDate>
+                        <Gender>U</Gender>
+                    </n1:PersonInfo>
+                    <UseAddressForHealth>true</UseAddressForHealth>
+                    <n1:AddressInfo>
+                        <cuns:AddressLine>2015 Colorado Avenue</cuns:AddressLine>
+                        <cuns:AddressType>PHY</cuns:AddressType>
+                        <cuns:ZipCode5>90404</cuns:ZipCode5>
+                        <cuns:City>Santa Monica</cuns:City>
+                        <cuns:State>CA</cuns:State>
+                        <cuns:Country>US</cuns:Country>
+                    </n1:AddressInfo>
+                </Demographics>
+                <Appointment>
+                    <EmployerInfo>
+                        <EmployerCalPERSId>7111270643</EmployerCalPERSId>
+                    </EmployerInfo>
+                </Appointment>
+                <HealthEnrollment>
+                    <HealthEventReason>400</HealthEventReason>
+                    <EventDate>07/01/2017</EventDate>
+                    <ReceivedDate>2017-05-31</ReceivedDate>
+                    <MedicalGroup>045</MedicalGroup>
+                    <SubscriberInfo>
+                        <ApplyChangeToMedicalPlan>true</ApplyChangeToMedicalPlan>
+                        <ApplyChangeToDentalPlan>false</ApplyChangeToDentalPlan>
+                        <ApplyChangeToVisionPlan>false</ApplyChangeToVisionPlan>
+                        <HealthEligibilityZipCode>90404</HealthEligibilityZipCode>
+                        <HealthEligibilityZipCodeType>Personal</HealthEligibilityZipCodeType>
+                        <HealthEligibilityCounty>US</HealthEligibilityCounty>
+                    </SubscriberInfo>
+                </HealthEnrollment>
+            </Transaction>
+            <Transaction>
+                <TransactionType>OEN</TransactionType>
+                <UniqueTransactionId>119611674969374984473325920190241926</UniqueTransactionId>
+                <Demographics>
+                    <n1:PersonInfo>
+                        <cuns:SSN>999001225</cuns:SSN>
+                        <PersonIdType>SSN</PersonIdType>
+                        <LastName>Admin</LastName>
+                        <FirstName>Test</FirstName>
+                        <BirthDate> </BirthDate>
+                        <Gender>U</Gender>
+                    </n1:PersonInfo>
+                    <UseAddressForHealth>true</UseAddressForHealth>
+                    <n1:AddressInfo>
+                        <cuns:AddressLine>1651 16th Street</cuns:AddressLine>
+                        <cuns:AddressLine>Apt #45</cuns:AddressLine>
+                        <cuns:AddressType>PHY</cuns:AddressType>
+                        <cuns:ZipCode5>90404</cuns:ZipCode5>
+                        <cuns:City>Santa Monica</cuns:City>
+                        <cuns:State>CA</cuns:State>
+                        <cuns:Country>US</cuns:Country>
+                    </n1:AddressInfo>
+                </Demographics>
+                <Appointment>
+                    <EmployerInfo>
+                        <EmployerCalPERSId>7111270643</EmployerCalPERSId>
+                    </EmployerInfo>
+                </Appointment>
+                <HealthEnrollment>
+                    <HealthEventReason>400</HealthEventReason>
+                    <EventDate>07/01/2017</EventDate>
+                    <ReceivedDate>2017-05-31</ReceivedDate>
+                    <MedicalGroup>045</MedicalGroup>
+                    <SubscriberInfo>
+                        <ApplyChangeToMedicalPlan>true</ApplyChangeToMedicalPlan>
+                        <ApplyChangeToDentalPlan>false</ApplyChangeToDentalPlan>
+                        <ApplyChangeToVisionPlan>false</ApplyChangeToVisionPlan>
+                        <HealthEligibilityZipCode>90404</HealthEligibilityZipCode>
+                        <HealthEligibilityZipCodeType>Personal</HealthEligibilityZipCodeType>
+                        <HealthEligibilityCounty>US</HealthEligibilityCounty>
+                    </SubscriberInfo>
+                </HealthEnrollment>
+            </Transaction>
+        </n1:RetirementHealthEnrollment>
+    </soap:Body>
+</soap:Envelope>
