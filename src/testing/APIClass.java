@@ -41,7 +41,7 @@ public class APIClass {
 	private String location = "";
 
 	/**
-	 * This class represents a school and hold all info and runs functions.
+	 * This class represents a school and holds all info and runs functions.
 	 * @param nameOfSchool - Name of the school
 	 * @param apiKey - API key for the school
 	 * @param adminUser - User that holds Admin user
@@ -154,6 +154,11 @@ public class APIClass {
 
 	}
 
+	/*
+	 * Fetches the global report for the given report ID and returns the report as 
+	 * one long string. If you want some sort parsing, maybe you should ask a fancy
+	 * programmer, not a state school grad.
+	 */
 	public String getGlobalReport(String id){
 		String url = "https://secure3.saashr.com:443/ta/rest/v1/report/global/";
 		String reportText = "";

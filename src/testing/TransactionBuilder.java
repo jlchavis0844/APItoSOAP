@@ -7,15 +7,6 @@ import javax.xml.soap.SOAPElement;
 import javax.xml.soap.SOAPEnvelope;
 import javax.xml.soap.SOAPException;
 import javax.xml.soap.SOAPMessage;
-import javax.xml.stream.events.Namespace;
-import javax.xml.transform.OutputKeys;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
-import org.w3c.dom.Element;
-import java.io.File;
 import java.util.Vector;
 
 public class TransactionBuilder {
@@ -23,8 +14,6 @@ public class TransactionBuilder {
 
 	public static void makeTransaction(Vector<Transaction> transactions, SOAPMessage message){
 
-		DOMSource source = null;
-		Element superRoot = null;
 		SOAPBodyElement bodyRoot = null;
 		SOAPEnvelope envelope = null;
 		SOAPBody body = null;
@@ -74,28 +63,7 @@ public class TransactionBuilder {
 				//Demo graphics area
 				SOAPElement demo = rootElement.addChildElement("Demographics");
 				SOAPElement pInfo = demo.addChildElement("PersonInfo", "n1");
-				SOAPElement pID = pInfo.addChildElement("SSN", "cuns").addTextNode(emp.getSSN());
-				//				Element demo = doc.createElement("Demographics");//holds PersonalInfo and others
-				//				Element pInfo = doc.createElement("PersonalInfo");//holds all personal id including personid
-				//				Element pID = doc.createElement("PersonId"); // holds calPERSId
-				//
-				//				//only calpersid or SSN should be in the thing
-				//				//write the calPERSid to the personal info. Exist it personidtype = PID
-				//				if(emp.getCalPERSid() != null){
-				//					Element cpID = doc.createElement("CalPERSId");
-				//					cpID.appendChild(doc.createTextNode(emp.getCalPERSid()));
-				//					pID.appendChild(cpID);
-				//					pInfo.appendChild(pID);
-				//				}
-				//
-				//				//write ssn, should be here if calpersid isn't and peronidtype != PID
-				//				if(emp.getSSN() != null){
-				//					Element cpID = doc.createElement("SSN");
-				//					cpID.setPrefix("cuns");
-				//					cpID.appendChild(doc.createTextNode(emp.getSSN()));
-				//					pID.appendChild(cpID);
-				//					pInfo.appendChild(pID);
-				//				}
+				pInfo.addChildElement("SSN", "cuns").addTextNode(emp.getSSN());
 
 
 				if(emp.getPersonIdType() != null){
@@ -199,8 +167,7 @@ public class TransactionBuilder {
 
 				}//end address exists
 
-				//start appointment group
-				SOAPElement app = rootElement.addChildElement("Appointment")//<Appointment>
+				rootElement.addChildElement("Appointment")//<Appointment>
 						.addChildElement("EmployerInfo")						//<EmployerInfo>
 						.addChildElement("EmployerCalPERSId")						//<EmployerCalPERSId>
 						.addTextNode(employerID);

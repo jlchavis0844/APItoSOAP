@@ -4,14 +4,14 @@
             <cuns:InterfaceTypeId>50031</cuns:InterfaceTypeId>
             <cuns:BusinessPartnerId>7111270643</cuns:BusinessPartnerId>
             <cuns:SchemaVersion>1.0</cuns:SchemaVersion>
-            <cuns:DateTime>2017-05-31T08:46:27.378</cuns:DateTime>
+            <cuns:DateTime>2019-02-14T09:37:53.518</cuns:DateTime>
         </cuns:HeaderInfo>
     </soap:Header>
     <soap:Body>
         <n1:RetirementHealthEnrollment xmlns:cuns="http://calpers.ca.gov/PSR/CommonUtilitiesV1" xmlns:n1="http://calpers.ca.gov/PSR/RetirementHealthTransactionsV1" xsi:schemaLocation="http://schemas.xmlsoap.org/soap/envelope/SoapEnvelope.xsd">
             <Transaction>
                 <TransactionType>OEN</TransactionType>
-                <UniqueTransactionId>363701739644936257414862401488632945</UniqueTransactionId>
+                <UniqueTransactionId>089308524395600117459022417322593816</UniqueTransactionId>
                 <Demographics>
                     <n1:PersonInfo>
                         <cuns:SSN>999001234</cuns:SSN>
@@ -39,7 +39,7 @@
                 <HealthEnrollment>
                     <HealthEventReason>400</HealthEventReason>
                     <EventDate>07/01/2017</EventDate>
-                    <ReceivedDate>2017-05-31</ReceivedDate>
+                    <ReceivedDate>2019-02-14</ReceivedDate>
                     <MedicalGroup>045</MedicalGroup>
                     <SubscriberInfo>
                         <ApplyChangeToMedicalPlan>true</ApplyChangeToMedicalPlan>
@@ -53,7 +53,7 @@
             </Transaction>
             <Transaction>
                 <TransactionType>OEN</TransactionType>
-                <UniqueTransactionId>119611674969374984473325920190241926</UniqueTransactionId>
+                <UniqueTransactionId>645757662329535361859650759539018034</UniqueTransactionId>
                 <Demographics>
                     <n1:PersonInfo>
                         <cuns:SSN>999001225</cuns:SSN>
@@ -82,7 +82,7 @@
                 <HealthEnrollment>
                     <HealthEventReason>400</HealthEventReason>
                     <EventDate>07/01/2017</EventDate>
-                    <ReceivedDate>2017-05-31</ReceivedDate>
+                    <ReceivedDate>2019-02-14</ReceivedDate>
                     <MedicalGroup>045</MedicalGroup>
                     <SubscriberInfo>
                         <ApplyChangeToMedicalPlan>true</ApplyChangeToMedicalPlan>
